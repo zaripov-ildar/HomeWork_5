@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"
+      ng-app="store">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="JS/script.js"></script>
+    <link type="text/css" href="CSS/style.css" rel="stylesheet">
+    <title>Guitar shop</title>
+</head>
+<body>
+<div ng-controller="indexController">
+    <table>
+        <thead>
+        <td>ID</td>
+        <td>name</td>
+        <td>price</td>
+        <td>action</td>
+        </thead>
+        <tbody>
+        <tr ng-repeat="prod in productList">
+            <td>{{prod.id}}</td>
+            <td>{{prod.name}}</td>
+            <td>
+                {{prod.price}}
+            </td>
+            <td>
+                <button ng-click="deleteProduct(prod.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <br>
+    <form>
+        <input ng-model="product.name" placeholder="input name"/>
+        <input ng-model="product.price" placeholder="input price"/>
+        <button ng-click="addProduct(product)" class="btn btn-primary">Add new product</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <form>
+        <input ng-model="id" placeholder="input id"/>
+        <button ng-click="findById(id)" class="btn btn-primary">Find product</button>
+        <br>
+        <br>
+        <input ng-model="found_prod.name" placeholder="{{found_prod.name}}"/>
+        <input ng-model="found_prod.price" placeholder="{{found_prod.price}}"/>
+        <button ng-click="addProduct(found_prod)" class="btn btn-primary">Update</button>
+    </form>
+</div>
+</body>
+</html>
